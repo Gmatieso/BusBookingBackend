@@ -6,6 +6,9 @@ ruby "3.1.1"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
+gem "sprockets-rails"
+
+
  #Use postgre as the database for AR
 gem 'pg'
 
