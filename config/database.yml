@@ -8,8 +8,6 @@ default: &default
   # adapter: sqlite3
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: uh3IYwsmd2u8ke7QTVcF
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -26,4 +24,5 @@ test:
   database: db/test.sqlite3
 
 production:
-   url: postgresql://postgres:uh3IYwsmd2u8ke7QTVcF@containers-us-west-157.railway.app:7989/railway
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
