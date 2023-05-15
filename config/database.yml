@@ -14,7 +14,6 @@ default: &default
 
 development:
   <<: *default
-  url: postgresql://postgres:uh3IYwsmd2u8ke7QTVcF@containers-us-west-157.railway.app:7989/railway
   database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
