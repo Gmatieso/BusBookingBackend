@@ -17,5 +17,6 @@ module Phase5FinalipBusBooking
     config.action_dispatch.cookies_same_site_protection = :strict
 
     config.api_only = true
+
   end
 end
