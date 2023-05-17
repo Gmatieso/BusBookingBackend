@@ -67,13 +67,12 @@ the project id, and now on the command line within your project run; **railway l
   deployed every time you push the code to it.
   
  # Deploy the App
-  
-  To deploy your app run; railway up
-    - The above command will trigger a build of your project and then push your
+   To deploy your app run; railway up
+   - The above command will trigger a build of your project and then push your
       code to the Railway server.
-    - Navigate, to the settings of the app and choose, create domain to get the link
+   - Navigate, to the settings of the app and choose, create domain to get the link
       to your app
-    - After a successful deployment, you can find the link from the dashboard or it
+   - After a successful deployment, you can find the link from the dashboard or it
       will be printed on the terminal. FYI it’s the same link you just used in your
       environments config
 To check for logs, navigate to the Railway dashboard, select your app and then
