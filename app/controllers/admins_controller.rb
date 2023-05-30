@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
     def show
         admin = Admin.find(session[:admin_id])
         if admin
-            render json: admin
+            render json: admin     #Here we just telling our Rails, instead of rendering HTML template, you should send back JSON data as the response. 
         else
             render json: {error: "user not authorized"}, status: :unauthorized
         end

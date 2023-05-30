@@ -12,7 +12,8 @@ gem "sprockets-rails"
 
 
  #Use postgre as the database for AR
-gem 'pg'
+ gem 'pg', '1.5.3'
+
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"

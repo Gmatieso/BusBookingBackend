@@ -1,4 +1,5 @@
 class BusesController < ApplicationController
+ #Transmits data requests from the user to the model, and then delivers data  that is rendered in the view to the user 
 rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_not_found_record
 rescue_from ActiveRecord::RecordInvalid, with:  :rescue_from_invalid_record
 
