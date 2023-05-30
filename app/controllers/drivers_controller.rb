@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+    #Transmits data requests from the user to the model, and then delivers data  that is rendered in the view to the user 
     before_action :authorize, only: [:show]
 
     def show
