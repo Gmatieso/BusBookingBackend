@@ -12,8 +12,6 @@ wrap_parameters format: []   #Don't wrap JSON  parameters as nested hash
     def show
         booking = find_booking
         render json: booking, status: :ok
-    else
-        rescue_from_record_not_found
     end
 
     #Create new bookings here 
@@ -30,20 +28,15 @@ wrap_parameters format: []   #Don't wrap JSON  parameters as nested hash
         #Update 
             booking.update!(booking_params)
             render json: booking, status: :accepted
-     else 
-        rescue_from_record_not_found
     end
 
     end
 
     #Delete a specific id 
     def destroy
-        booking = Booking.find(params[:id])
-        if booking
-            booking.destroy
-            head :no_content
-        else
-            rescue_from_record_not_found
+        booking = find_booking 
+        booking.destroy
+        head :no_content
     end
 
 
@@ -55,7 +48,7 @@ wrap_parameters format: []   #Don't wrap JSON  parameters as nested hash
     private
 
     def find_booking 
-        Booking.find_by(id:params[:id])
+        Booking.find(:params[:id])
     end
 
     #Put your Strong Params Here!
