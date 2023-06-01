@@ -2,49 +2,64 @@ class BookingsController < ApplicationController
     #This controller maps to our routings 
 rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_record_not_found
 wrap_parameters format: []   #Don't wrap JSON  parameters as nested hash 
-
+    
+    #Show all bookings 
     def index
         render json: Booking.all, status: :ok
     end
 
+    #Show specific booking here 
     def show
-        booking = Booking.find(params[:id])
+        booking = find_booking
         render json: booking, status: :ok
+    else
+        rescue_from_record_not_found
     end
 
-    #Put your Post Here 
-
+    #Create new bookings here 
     def create
         booking = Booking.create!(booking_params)
         render json: booking, status: :created
     end
 
-    #Put your patch Here 
-
+    #Update a specific id 
     def update
         #find 
-        booking = Booking.find_by(id:params[:id])
+        booking = find_booking
     if booking 
         #Update 
             booking.update!(booking_params)
             render json: booking, status: :accepted
      else 
-            render json: {error: "Production not found"}, status: :not_found
+        rescue_from_record_not_found
     end
 
     end
 
+    #Delete a specific id 
     def destroy
         booking = Booking.find(params[:id])
-        booking.destroy
-        render json: booking, status: :not_found
+        if booking
+            booking.destroy
+            head :no_content
+        else
+            rescue_from_record_not_found
     end
 
 
-    #Put your Strong Params Here!
+
+
+
+
+    
     private
 
-    def booking_params
+    def find_booking 
+        Booking.find_by(id:params[:id])
+    end
+
+    #Put your Strong Params Here!
+     def booking_params
         params.permit(:from, :to, :date, :no_of_passangers)
     end
 

@@ -21,3 +21,4 @@ Rails.application.routes.draw do
   post '/driver-login', to: 'drivers#login'
   delete '/driver-logout', to: 'drivers#logout'
 end
+

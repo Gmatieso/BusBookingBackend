@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
     before_action :authorize, only: [:show]
 
     def show
-        client = Client.find(session[:client_id])
+        #find 
+        client = Client.find_by(id:session[:client_id])
         if client
             render json: client
         else

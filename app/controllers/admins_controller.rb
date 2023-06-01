@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+    #We use controller to map to our routings. 
     before_action :authorize, only: [:show]
 
     def show
