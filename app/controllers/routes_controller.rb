@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+    #This controller maps to our routings 
     #Rails was created with concepts of convection over configuration 
     #i.e views corresponds directly to controller file, which speaks directly with models
 
